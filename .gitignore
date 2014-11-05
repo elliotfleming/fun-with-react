@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+logs
+bower_components
+node_modules
+vendor
+server
+client
+public
+build

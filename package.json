@@ -1,0 +1,56 @@
+{
+  "name": "fun-with-react",
+  "version": "0.0.1",
+  "author": {
+    "name": "Elliot Fleming",
+    "email": "elliotfleming@gmail.com",
+    "url": "https://github.com/elliotfleming"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elliotfleming/fun-with-react"
+  },
+  "bugs": {
+    "url": "https://github.com/elliotfleming/fun-with-react/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browser": {
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      "reactify"
+    ]
+  },
+  "browserify-shim": {
+  },
+  "dependencies": {
+    "react": "latest"
+  },
+  "devDependencies": {
+    "browser-sync": "latest",
+    "browserify": "latest",
+    "browserify-shim": "latest",
+    "coffeeify": "latest",
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-changed": "latest",
+    "gulp-coffee": "latest",
+    "gulp-concat": "latest",
+    "gulp-filter": "latest",
+    "gulp-notify": "latest",
+    "gulp-react": "latest",
+    "gulp-stylus": "latest",
+    "gulp-util": "latest",
+    "main-bower-files": "latest",
+    "nib": "latest",
+    "pretty-hrtime": "latest",
+    "reactify": "latest",
+    "require-dir": "latest",
+    "stream-files": "latest",
+    "vinyl-source-stream": "latest",
+    "watchify": "latest"
+  }
+}
