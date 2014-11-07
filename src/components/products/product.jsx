@@ -4,15 +4,11 @@ React = require('react');
 
 var Product = React.createClass({
 
-  render: function() {
+  propTypes: {
+    product: React.PropTypes.object.isRequired
+  },
 
-    if (this.props.empty) {
-      return (
-        <tr>
-          <td className="danger text-danger" colSpan="2">No Results</td>
-        </tr>
-      )
-    }
+  render: function() {
 
     var name = this.props.product.stocked ?
       this.props.product.name :

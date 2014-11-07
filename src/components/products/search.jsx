@@ -4,11 +4,10 @@ React = require('react');
 
 var Search = React.createClass({
 
-  handleChange: function() {
-    this.props.onUserInput(
-      this.refs.filterTextInput.getDOMNode().value,
-      this.refs.inStockOnlyInput.getDOMNode().checked
-    );
+  propTypes: {
+    filterText: React.PropTypes.string.isRequired,
+    inStockOnly: React.PropTypes.bool.isRequired,
+    onUserInput: React.PropTypes.func.isRequired
   },
 
   render: function() {
@@ -21,7 +20,8 @@ var Search = React.createClass({
             placeholder="Search..."
             value={this.props.filterText}
             ref="filterTextInput"
-            onChange={this.handleChange}
+            onChange={this._onChange}
+            autoFocus={true}
           />
         </div>
         <div className="checkbox">
@@ -30,12 +30,19 @@ var Search = React.createClass({
               type="checkbox"
               value={this.props.inStockOnly}
               ref="inStockOnlyInput"
-              onChange={this.handleChange}
+              onChange={this._onChange}
             />
             Only show products in stock
           </label>
         </div>
       </form>
+    );
+  },
+
+  _onChange: function() {
+    this.props.onUserInput(
+      this.refs.filterTextInput.getDOMNode().value,
+      this.refs.inStockOnlyInput.getDOMNode().checked
     );
   }
 

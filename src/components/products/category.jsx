@@ -4,6 +4,10 @@ React = require('react');
 
 var Category = React.createClass({
 
+  propTypes: {
+    category: React.PropTypes.string.isRequired
+  },
+
   render: function() {
     return (
       <tr>

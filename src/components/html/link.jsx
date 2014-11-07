@@ -5,7 +5,7 @@ React = require('react');
 var Link = React.createClass({
 
   propTypes: {
-    children: React.PropTypes.string.isRequired
+    href: React.PropTypes.string.isRequired
   },
 
   render: function() {

@@ -4,7 +4,13 @@ React    = require('react');
 Product  = require('./product');
 Category = require('./category');
 
-var Table = React.createClass({
+var SearchResults = React.createClass({
+
+  propTypes: {
+    products: React.PropTypes.array.isRequired,
+    filterText: React.PropTypes.string.isRequired,
+    inStockOnly: React.PropTypes.bool.isRequired
+  },
 
   render: function() {
 
@@ -13,9 +19,14 @@ var Table = React.createClass({
 
     this.props.products.forEach(function(product, id) {
 
-      if (!~product.name.toLowerCase().indexOf(this.props.filterText) || (!product.stocked && this.props.inStockOnly)) {
-        return;
-      }
+      var noMatch = !~product.name
+        .toLowerCase()
+        .indexOf(
+          this.props.filterText.toLowerCase()
+        );
+      var notInStock = !product.stocked && this.props.inStockOnly
+
+      if (noMatch || notInStock) return;
 
       if (product.category !== lastCategory) {
         rows.push(<Category category={product.category} key={product.category} />);
@@ -28,7 +39,11 @@ var Table = React.createClass({
     }.bind(this));
 
     if (rows.length === 0) {
-      rows.push(<Product empty={true} key="null" />);
+      return (
+        <div className="panel-body text-danger text-center">
+          <b>No Results</b>
+        </div>
+      );
     }
 
     return (
@@ -46,4 +61,4 @@ var Table = React.createClass({
 
 });
 
-module.exports = Table;
+module.exports = SearchResults;

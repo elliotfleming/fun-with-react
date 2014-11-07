@@ -1,24 +1,21 @@
 /** @jsx React.DOM */
 
-React  = require('react');
-Search = require('./search');
-Table  = require('./table');
+React         = require('react');
+Search        = require('./search');
+SearchResults = require('./searchResults');
 
 
 var Products = React.createClass({
+
+  propTypes: {
+    products: React.PropTypes.array.isRequired
+  },
 
   getInitialState: function() {
     return {
       filterText: '',
       inStockOnly: false
     };
-  },
-
-  handleUserInput: function(filterText, inStockOnly) {
-    this.setState({
-      filterText: filterText,
-      inStockOnly: inStockOnly
-    });
   },
 
   render: function() {
@@ -35,10 +32,10 @@ var Products = React.createClass({
               <Search
                 filterText={this.state.filterText}
                 inStockOnly={this.state.inStockOnly}
-                onUserInput={this.handleUserInput}
+                onUserInput={this._onUserInput}
               />
             </div>
-            <Table
+            <SearchResults
               products={this.props.products}
               filterText={this.state.filterText}
               inStockOnly={this.state.inStockOnly}
@@ -47,6 +44,13 @@ var Products = React.createClass({
         </div>
       </div>
     );
+  },
+
+  _onUserInput: function(filterText, inStockOnly) {
+    this.setState({
+      filterText: filterText,
+      inStockOnly: inStockOnly
+    });
   }
 
 });
