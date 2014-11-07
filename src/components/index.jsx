@@ -7,7 +7,7 @@ ProductStore = require('../stores/products.js');
 
 React.render(
   <div className="container-fluid">
-    <Header />
+    <Header title="Fun with React" />
     <Products products={ProductStore} />
   </div>,
   document.getElementById('container')
