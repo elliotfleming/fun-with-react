@@ -13,7 +13,7 @@ var Table = React.createClass({
 
     this.props.products.forEach(function(product, id) {
 
-      if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
+      if (!~product.name.toLowerCase().indexOf(this.props.filterText) || (!product.stocked && this.props.inStockOnly)) {
         return;
       }
 
