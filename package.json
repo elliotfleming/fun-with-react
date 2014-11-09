@@ -27,6 +27,8 @@
   "browserify-shim": {
   },
   "dependencies": {
+    "backbone": "latest",
+    "flux": "latest",
     "react": "latest"
   },
   "devDependencies": {

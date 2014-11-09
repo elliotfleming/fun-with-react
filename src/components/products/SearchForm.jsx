@@ -2,7 +2,7 @@
 
 React = require('react');
 
-var Search = React.createClass({
+var SearchForm = React.createClass({
 
   propTypes: {
     filterText: React.PropTypes.string.isRequired,
@@ -28,7 +28,7 @@ var Search = React.createClass({
           <label>
             <input
               type="checkbox"
-              value={this.props.inStockOnly}
+              checked={this.props.inStockOnly}
               ref="inStockOnlyInput"
               onChange={this._onChange}
             />
@@ -48,4 +48,4 @@ var Search = React.createClass({
 
 });
 
-module.exports = Search;
+module.exports = SearchForm;

@@ -2,7 +2,7 @@
 
 React = require('react');
 
-var Product = React.createClass({
+var ProductTableRow = React.createClass({
 
   propTypes: {
     product: React.PropTypes.object.isRequired
@@ -26,4 +26,4 @@ var Product = React.createClass({
 
 });
 
-module.exports = Product;
+module.exports = ProductTableRow;

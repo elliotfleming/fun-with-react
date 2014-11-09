@@ -1,14 +1,13 @@
 /** @jsx React.DOM */
 
-React        = require('react');
-Header       = require('./header');
-Products     = require('./products/products');
-ProductStore = require('../stores/products.js');
+React    = require('react');
+Header   = require('./header');
+Products = require('./products/Products');
 
 React.render(
   <div className="container-fluid">
     <Header title="Fun with React" />
-    <Products products={ProductStore} />
+    <Products />
   </div>,
   document.getElementById('container')
 );

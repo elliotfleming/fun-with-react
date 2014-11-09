@@ -2,7 +2,7 @@
 
 React = require('react');
 
-var Category = React.createClass({
+var ProductTableCategoryRow = React.createClass({
 
   propTypes: {
     category: React.PropTypes.string.isRequired
@@ -18,4 +18,4 @@ var Category = React.createClass({
 
 });
 
-module.exports = Category;
+module.exports = ProductTableCategoryRow;

@@ -1,13 +1,13 @@
 /** @jsx React.DOM */
 
-React    = require('react');
-Product  = require('./product');
-Category = require('./category');
+React                   = require('react');
+ProductTableRow         = require('./ProductTableRow');
+ProductTableCategoryRow = require('./ProductTableCategoryRow');
 
-var SearchResults = React.createClass({
+var ProductTable = React.createClass({
 
   propTypes: {
-    products: React.PropTypes.array.isRequired,
+    products: React.PropTypes.object.isRequired,
     filterText: React.PropTypes.string.isRequired,
     inStockOnly: React.PropTypes.bool.isRequired
   },
@@ -19,6 +19,8 @@ var SearchResults = React.createClass({
 
     this.props.products.forEach(function(product, id) {
 
+      product = product.attributes;
+
       var noMatch = !~product.name
         .toLowerCase()
         .indexOf(
@@ -29,10 +31,10 @@ var SearchResults = React.createClass({
       if (noMatch || notInStock) return;
 
       if (product.category !== lastCategory) {
-        rows.push(<Category category={product.category} key={product.category} />);
+        rows.push(<ProductTableCategoryRow category={product.category} key={product.category + id} />);
       }
 
-      rows.push(<Product product={product} key={id} />);
+      rows.push(<ProductTableRow product={product} key={id} />);
 
       lastCategory = product.category;
 
@@ -61,4 +63,4 @@ var SearchResults = React.createClass({
 
 });
 
-module.exports = SearchResults;
+module.exports = ProductTable;
