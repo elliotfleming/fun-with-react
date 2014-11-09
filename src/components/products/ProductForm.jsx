@@ -6,7 +6,8 @@ Actions = require('../../actions/Actions');
 var ProductForm = React.createClass({
 
   propTypes: {
-    product: React.PropTypes.object.isRequired
+    product: React.PropTypes.object.isRequired,
+    onUserInput: React.PropTypes.func.isRequired
   },
 
   render: function() {
